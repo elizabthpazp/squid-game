@@ -69,7 +69,7 @@ const Game: React.FC<GameProps> = ({ onEnd }) => {
         head.position.set(0, 8, -1)
       },
       undefined,
-      (error) => console.error('An error happened', error)
+      (error: any) => console.error('An error happened', error)
     )
 
     const animate = () => {
@@ -138,13 +138,13 @@ const Game: React.FC<GameProps> = ({ onEnd }) => {
       animationFrameId = requestAnimationFrame(processFrame)
     }
 
-    if (isModelLoaded) {
+   // if (isModelLoaded) {
       processFrame()
-    } else if (faceDetectionError) {
-      setError(faceDetectionError)
-    } else {
-      setError('Face detection model is loading. Please wait...')
-    }
+   // } else if (faceDetectionError) {
+    //  setError(faceDetectionError)
+    //} else {
+     // setError('Face detection model is loading. Please wait...')
+   // }
 
     return () => {
       if (animationFrameId) {
